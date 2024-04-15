@@ -1,3 +1,4 @@
 # learning-laravel
 
-- Repositorio com intuito voltado para aprendizagem, testes e anotações.
+- Este repositorio serve apenas pra que eu consiga criar projetos laravel e deixe guardado minhas anotações.
+- Aprendendo...
