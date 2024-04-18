@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesFormRequest;
-use App\Models\Episode;
-use App\Models\Season;
 use App\Models\Series;
+use App\Repositories\EloquentSeriesRepository;
+use app\Repositories\SeriesRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SeriesController extends Controller
 {
+
+    public function __construct(private SeriesRepository $repository)
+    {
+    }
+
     public function index(Request $request)
     {
         #$series = Series::query()->orderBy('nome')->get();
@@ -36,32 +40,13 @@ class SeriesController extends Controller
         # existem varios jeitos de fazer essa adicao no banco
         //Series::create($request->all());
         //Series::create($request->except(['_token'])); # exceto um campo
-        $serie = Series::create($request->only(['nome'])); # somente um campo
+        //$serie = Series::create($request->only(['nome'])); # somente um campo
 
         # vamos padronizar usando o with
         //$request->session()->flash('mensagem.sucesso', "A Série '{$serie->nome}' foi Adicionada com sucesso!");
 
-        $seasons = [];
-        for($i = 1; $i <= $request->seasonsQty; $i++) {
+        $serie = $this->repository->add($request);
 
-            $seasons[] = [
-                'series_id' => $serie->id,
-                'number' => $i
-            ];
-
-        }
-        Season::insert($seasons);
-
-        $episodes = [];
-        foreach ($serie->seasons as $season) {
-            for ($j = 1; $j <= $request->episodesPerSeason; $j++) {
-                $episodes[] = [
-                    'season_id' => $season->id,
-                    'number' => $j
-                ];
-            }
-        }
-        Episode::insert($episodes);
 
         return to_route('series.index')
             ->with('mensagem.sucesso', "A Série '{$serie->nome}' foi Adicionada com sucesso!");
