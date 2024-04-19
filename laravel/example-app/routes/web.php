@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EpisodesController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SeasonsController;
 use Illuminate\Support\Facades\Route;
@@ -35,4 +36,13 @@ Route::resource('/series', SeriesController::class)
 //});
 //Route::delete('/series/destroy/{serie}', [SeriesController::class, 'destroy'])->name('series.destroy');
 
-Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])->name('seasons.index');
+Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])
+    ->name('seasons.index');
+
+Route::get('/seasons/{season}/episodes', [EpisodesController::class, 'index'])
+    ->name('episodes.index');
+
+Route::post('/seasons/{season}/episodes', function (\Illuminate\Http\Request $request) {
+//    dd($request->all());
+    return to_route('series.index');
+});

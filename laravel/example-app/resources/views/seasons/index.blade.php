@@ -15,7 +15,9 @@
             @foreach ($seasons as $season)
                 <tr>
                     <td>
-                        Temporada {{ $season->number }}
+                        <a href="{{ route('episodes.index', $season->id) }}">
+                            Temporada {{ $season->number }}
+                        </a>
                     </td>
 
                     <td>
