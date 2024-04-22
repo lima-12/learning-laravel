@@ -1,4 +1,4 @@
-<x-layout title="Episódios">
+<x-layout title="Episódios" :mensagemSucesso="$mensagemSucesso">
 
 {{--    @dd($episodes)--}}
 
@@ -21,7 +21,12 @@
                         </td>
 
                         <td>
-                            <input type="checkbox" name="episodes[]" value="{{ $episode->id }}">
+                            <input 
+                            type="checkbox" 
+                            name="episodes[]" 
+                            value="{{ $episode->id }}"
+                            @if ($episode->watched) checked @endif
+                            />
                         </td>
                     </tr>
                 @endforeach
@@ -30,9 +35,9 @@
         </div>
 
         <button class="btn btn-primary mt-3"> Salvar </button>
+        <a class="btn btn-secondary mt-3" type="button" href="{{ route('series.index') }}"> Voltar </a>
     </form>
 
 
-    <a class="btn btn-secondary mt-3" type="button" href="{{ route('series.index') }}"> Voltar </a>
 </x-layout>
 

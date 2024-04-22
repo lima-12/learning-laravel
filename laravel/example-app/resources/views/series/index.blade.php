@@ -1,14 +1,6 @@
-<x-layout title="Séries">
+<x-layout title="Séries" :mensagemSucesso="$mensagemSucesso">
 
     <a class="btn btn-dark mb-3" type="button" href="{{ route('series.create') }}"> Adicionar </a>
-
-    @isset($mensagemSucesso)
-        <div class="mt-3 mb-4">
-            <alert class="alert alert-info">
-                {{ $mensagemSucesso }}
-            </alert>
-        </div>
-    @endisset
 
     <div>
         <table class="table" style="width: 100%;">
