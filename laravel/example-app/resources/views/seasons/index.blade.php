@@ -21,7 +21,7 @@
                     </td>
 
                     <td>
-                        {{ $season->episodes->count() }}
+                        {{ $season->numberOfWatchedEpisodes() }} / {{ $season->episodes->count() }}
                     </td>
                 </tr>
             @endforeach
