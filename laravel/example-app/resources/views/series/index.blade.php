@@ -15,9 +15,12 @@
                 @foreach ($series as $serie)
                     <tr>
                         <td>
-                            <a href="{{ route('seasons.index', $serie->id) }}"> {{ $serie->nome }} </a>
+                            @auth<a href="{{ route('seasons.index', $serie->id) }}">@endauth
+                                {{ $serie->nome }}
+                            @auth</a>@endauth
                         </td>
 
+                        @auth
                         <td>
                             <div class="d-flex my-1">
                                 <div class="mx-1">
@@ -36,6 +39,7 @@
                                 </div>
                             </div>
                         </td>
+                        @endauth
                     </tr>
                 @endforeach
             </tbody>

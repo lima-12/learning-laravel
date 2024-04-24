@@ -8,9 +8,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Middleware\Autenticador;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect('/series');
-})->middleware(Autenticador::class);
+
 
 /**
  * o resource simplifica todos esses metodos, mas para isso, precisamos seguir as boas praticas
@@ -30,16 +28,22 @@ Route::get('/', function () {
 Route::resource('/series', SeriesController::class)
     ->except('show');
 
+Route::middleware('autenticador')->group(function () {
+    Route::get('/', function () {
+        return redirect('/series');
+    });
+
 // seasons //
-Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])
-    ->name('seasons.index');
+    Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])
+        ->name('seasons.index');
 
 // episodes //
-Route::get('/seasons/{season}/episodes', [EpisodesController::class, 'index'])
-    ->name('episodes.index');
+    Route::get('/seasons/{season}/episodes', [EpisodesController::class, 'index'])
+        ->name('episodes.index');
 
-Route::post('/seasons/{season}/episodes', [EpisodesController::class, 'update'])
-    ->name('episodes.update');
+    Route::post('/seasons/{season}/episodes', [EpisodesController::class, 'update'])
+        ->name('episodes.update');
+});
 
 // login //
 Route::get('/login', [LoginController::class, 'index'])
