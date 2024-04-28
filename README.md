@@ -12,4 +12,8 @@
 - Por tanto, vou usar esse repositório para isso, aprendender novas tecnologias, como laravel, docker e afins.
 - Dito isso, deixo o repositório com meus aprendizados.
 
-- Acredtio que irei deixar esse projeto como está, ele tem um bom fluxo, apenas com o básico, me compliquei um pouco na hora de instalação do breeze, então vou deixar desse jeito e ficar praticando os conceitos bases e entender o fluxo 100%.
+- Acredeto que irei deixar esse projeto como está, ele tem um bom fluxo, apenas com o básico, me compliquei um pouco na hora de instalação do breeze, então vou deixar desse jeito e ficar praticando os conceitos bases e entender o fluxo 100%.
+- Pra não me complicar vou colocar os próximos projetos com laravel em outros repositórios, seja com docker ou sobre o aprendizado dos envios dos email's, api e etc.
+- Por fim, como eu disse, esse projeto vou usar pra entender o fluxo do mvc e algumas especificidades do laravel.
+
+- Um conselho: treinem com bastantes projetos e fação muito além dos cursos, sejam curiosos e fiquem testando tudo que vier na mente.
