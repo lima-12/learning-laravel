@@ -11,3 +11,5 @@
 - Além disso, alguns projetos novos no meu atual trabalho já estão implementando o laravel, mais um motivo pra aprender.
 - Por tanto, vou usar esse repositório para isso, aprendender novas tecnologias, como laravel, docker e afins.
 - Dito isso, deixo o repositório com meus aprendizados.
+
+- Acredtio que irei deixar esse projeto como está, ele tem um bom fluxo, apenas com o básico, me compliquei um pouco na hora de instalação do breeze, então vou deixar desse jeito e ficar praticando os conceitos bases e entender o fluxo 100%.
